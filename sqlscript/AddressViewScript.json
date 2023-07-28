@@ -1,0 +1,17 @@
+{
+	"name": "AddressViewScript",
+	"properties": {
+		"content": {
+			"query": "use gold_db \n\nCreate View Address AS \n\nSELECT \n   * \n   FROM \n   OPENROWSET( \n     BULK 'https://mkdatalakegen2storage.dfs.core.windows.net/gold/SalesLT/Address/', \n     FORMAT = 'DELTA' \n    ) AS [result] ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "gold_db",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

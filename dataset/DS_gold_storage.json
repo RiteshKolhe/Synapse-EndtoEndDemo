@@ -1,0 +1,19 @@
+{
+	"name": "DS_gold_storage",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "snpw-mrk-01-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "SalesLT",
+				"fileSystem": "gold"
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

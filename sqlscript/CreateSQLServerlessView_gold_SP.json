@@ -1,0 +1,17 @@
+{
+	"name": "CreateSQLServerlessView_gold_SP",
+	"properties": {
+		"content": {
+			"query": "use gold_db \n\ngo \n\ncreate or alter proc CreateSQLServerlessView_gold @ViewName nvarchar(100) \n\nas  \nbegin \n\n DECLARE @statement VARCHAR(MAX) \n SET @statement = N'CREATE OR ALTER VIEW ' + @ViewName +' AS \n  \n  SELECT * \n      FROM \n      OPENROWSET( \n            BULK ''https://mkdatalakegen2storage.dfs.core.windows.net/gold/SalesLT/'+@ViewName+'/'', \n            FORMAT = ''DELTA'' \n        ) as [result] \n\n' \n EXEC (@statement) \n\nEND \n\nGO \n\n ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "gold_db",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
