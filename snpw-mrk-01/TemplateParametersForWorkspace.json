@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "snpw-mrk-01"
+		},
+		"snpw-mrk-01-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:snpw-mrk-01.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"synapseServerlessSQGoldDB_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=snpw-mrk-01-ondemand.sql.azuresynapse.net;Initial Catalog=gold_db"
+		},
+		"snpw-mrk-01-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://mkdatalakegen2storage.dfs.core.windows.net"
+		}
+	}
+}
